@@ -102,7 +102,7 @@ def play():
                 if board.is_check():
                     board_svg = chess.svg.board(board, orientation=chess.BLACK, size=400, check=board.king(chess.BLACK))
                     return render_template('index.html', board=board_svg, turn=turn_method(),
-                                           leaderboard=list_of_lists(top_10_players()))
+                                           )
                 else:
                     pass
                 if request.method == 'POST':
@@ -115,20 +115,20 @@ def play():
                                 color = 1
                                 board_svg2 = chess.svg.board(board, orientation=chess.WHITE, size=400)
                                 return render_template('index.html', board=board_svg2, turn=turn_method(),
-                                                       leaderboard=list_of_lists(top_10_players()))
+                                                       )
                             else:
                                 board_svg2 = chess.svg.board(board, orientation=chess.BLACK, size=400)
                                 return render_template('index.html', board=board_svg2, turn=turn_method(),
-                                                       leaderboard=list_of_lists(top_10_players()))
+                                                       )
                         except:
                             pass
                     elif board.turn == chess.WHITE:
                         board_svg2 = chess.svg.board(board, orientation=chess.BLACK, size=400)
                         return render_template('index.html', board=board_svg2, turn=turn_method(),
-                                               leaderboard=list_of_lists(top_10_players()))
+                                               )
 
             return render_template('index.html', board=board_svg, turn=turn_method(),
-                                   leaderboard=list_of_lists(top_10_players()))
+                                   )
 
         elif session["user"] == 'guest':
             board_svg = chess.svg.board(board, orientation=chess.WHITE, size=400)
@@ -136,7 +136,7 @@ def play():
                 if board.is_check():
                     board_svg = chess.svg.board(board, orientation=chess.WHITE, size=400, check=board.king(chess.WHITE))
                     return render_template('index.html', board=board_svg, turn=turn_method(),
-                                           leaderboard=list_of_lists(top_10_players()))
+                                           )
                 else:
                     pass
                 if request.method == 'POST':
@@ -149,20 +149,20 @@ def play():
                                 color = 1
                                 board_svg2 = chess.svg.board(board, orientation=chess.BLACK, size=400)
                                 return render_template('index.html', board=board_svg2, turn=turn_method(),
-                                                       leaderboard=list_of_lists(top_10_players()))
+                                                       )
                             else:
                                 board_svg2 = chess.svg.board(board, orientation=chess.WHITE, size=400)
                                 return render_template('index.html', board=board_svg2, turn=turn_method(),
-                                                       leaderboard=list_of_lists(top_10_players()))
+                                                       )
                         except:
                             pass
                     elif board.turn == chess.BLACK:
                         board_svg2 = chess.svg.board(board, orientation=chess.WHITE, size=400)
                         return render_template('index.html', board=board_svg2, turn=turn_method(),
-                                               leaderboard=list_of_lists(top_10_players()))
+                                               )
 
             return render_template('index.html', board=board_svg, turn=turn_method(),
-                                   leaderboard=list_of_lists(top_10_players()))
+                                   )
 
     elif color == 1:
         if session["user"] == 'guest':
@@ -171,7 +171,7 @@ def play():
                 if board.is_check():
                     board_svg = chess.svg.board(board, orientation=chess.BLACK, size=400, check=board.king(chess.BLACK))
                     return render_template('index.html', board=board_svg, turn=turn_method(),
-                                           leaderboard=list_of_lists(top_10_players()))
+                                           )
                 else:
                     pass
                 if request.method == 'POST':
@@ -184,20 +184,20 @@ def play():
                                 board.reset()
                                 board_svg2 = chess.svg.board(board, orientation=chess.WHITE, size=400)
                                 return render_template('index.html', board=board_svg2, turn=turn_method(),
-                                                       leaderboard=list_of_lists(top_10_players()))
+                                                       )
                             else:
                                 board_svg2 = chess.svg.board(board, orientation=chess.BLACK, size=400)
                                 return render_template('index.html', board=board_svg2, turn=turn_method(),
-                                                       leaderboard=list_of_lists(top_10_players()))
+                                                       )
                         except:
                             pass
                     elif board.turn == chess.WHITE:
                         board_svg2 = chess.svg.board(board, orientation=chess.BLACK, size=400)
                         return render_template('index.html', board=board_svg2, turn=turn_method(),
-                                               leaderboard=list_of_lists(top_10_players()))
+                                               )
 
             return render_template('index.html', board=board_svg, turn=turn_method(),
-                                   leaderboard=list_of_lists(top_10_players()))
+                                   )
 
         elif session["user"] == 'admin':
             board_svg = chess.svg.board(board, orientation=chess.WHITE, size=400)
@@ -205,7 +205,7 @@ def play():
                 if board.is_check():
                     board_svg = chess.svg.board(board, orientation=chess.WHITE, size=400, check=board.king(chess.WHITE))
                     return render_template('index.html', board=board_svg, turn=turn_method(),
-                                           leaderboard=list_of_lists(top_10_players()))
+                                           )
                 else:
                     pass
                 if request.method == 'POST':
@@ -218,20 +218,20 @@ def play():
                                 color = 2
                                 board_svg2 = chess.svg.board(board, orientation=chess.BLACK, size=400)
                                 return render_template('index.html', board=board_svg2, turn=turn_method(),
-                                                       leaderboard=list_of_lists(top_10_players()))
+                                                       )
                             else:
                                 board_svg2 = chess.svg.board(board, orientation=chess.WHITE, size=400)
                                 return render_template('index.html', board=board_svg2, turn=turn_method(),
-                                                       leaderboard=list_of_lists(top_10_players()))
+                                                       )
                         except:
                             pass
                     elif board.turn == chess.BLACK:
                         board_svg2 = chess.svg.board(board, orientation=chess.WHITE, size=400)
                         return render_template('index.html', board=board_svg2, turn=turn_method(),
-                                               leaderboard=list_of_lists(top_10_players()))
+                                               )
 
             return render_template('index.html', board=board_svg, turn=turn_method(),
-                                   leaderboard=list_of_lists(top_10_players()))
+                                   )
 
 
 @socketio.on('move', namespace='/play')
